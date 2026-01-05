@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GothicV13 — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#050505;
+    --panel:#0d0d0d;
+    --red:#8b0f14;
+    --text:#ffffff;
+    --muted:#b0b0b0;
+    --border:rgba(139,15,20,.35);
+    --glow:0 0 35px rgba(139,15,20,.45);
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Inter,sans-serif;
+    background:
+        radial-gradient(circle at top,#120404 0%,#050505 65%);
+    color:var(--text);
+}
+
+/* Grain */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    pointer-events:none;
+    z-index:999;
+}
+
+/* Header */
+header{
+    padding:2.5rem;
+    display:flex;
+    justify-content:flex-end;
+}
+
+select{
+    background:var(--panel);
+    color:var(--text);
+    border:1px solid var(--red);
+    padding:.45rem .7rem;
+    border-radius:4px;
+}
+
+/* Hero */
+.hero{
+    padding:5rem 2rem 4rem;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-inner{
+    display:flex;
+    align-items:center;
+    gap:2.5rem;
+    max-width:950px;
+}
+
+/* Avatar */
+.avatar{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:#080808;
+    border:2px solid var(--red);
+    box-shadow:var(--glow);
+    flex-shrink:0;
+}
+
+.avatar svg{
+    width:100%;
+    height:100%;
+}
+
+/* Name */
+.name-block h1{
+    font-family:UnifrakturCook,cursive;
+    font-size:3.8rem;
+    margin:0;
+}
+
+.name-block p{
+    margin:.6rem 0 0;
+    color:var(--muted);
+    max-width:560px;
+    line-height:1.6;
+}
+
+/* Sections */
+section{
+    max-width:1150px;
+    margin:4.5rem auto;
+    padding:2.8rem;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:0 35px 110px rgba(0,0,0,.85);
+}
+
+section h2{
+    font-family:UnifrakturCook,cursive;
+    font-size:2.4rem;
+    margin-bottom:1.4rem;
+}
+
+/* Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1.9rem;
+}
+
+.card{
+    background:#080808;
+    padding:1.9rem;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.05);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 50px rgba(139,15,20,.55);
+}
+
+/* Quote */
+blockquote{
+    border-left:4px solid var(--red);
+    padding-left:1.7rem;
+    font-style:italic;
+    color:var(--muted);
+    font-size:1.05rem;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.contact-list li{
+    margin:.7rem 0;
+    color:var(--muted);
+}
+
+.contact-list span{
+    color:var(--text);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:3.5rem;
+    font-size:.8rem;
+    color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <select id="lang">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+    </select>
+</header>
+
+<div class="hero">
+    <div class="hero-inner">
+        <div class="avatar">
+            <!-- Inline SVG avatar (replace later if you want) -->
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="40" r="18" fill="#8b0f14"/>
+                <rect x="25" y="62" width="50" height="28" rx="14" fill="#8b0f14"/>
+            </svg>
+        </div>
+        <div class="name-block">
+            <h1>GothicV13</h1>
+            <p data-i18n="tagline"></p>
+        </div>
+    </div>
+</div>
+
+<section>
+    <h2 data-i18n="aboutTitle"></h2>
+    <p data-i18n="aboutText"></p>
+</section>
+
+<section>
+    <h2 data-i18n="interestsTitle"></h2>
+    <div class="grid">
+        <div class="card" data-i18n="interest1"></div>
+        <div class="card" data-i18n="interest2"></div>
+        <div class="card" data-i18n="interest3"></div>
+        <div class="card" data-i18n="interest4"></div>
+    </div>
+</section>
+
+<section>
+    <h2 data-i18n="quoteTitle"></h2>
+    <blockquote data-i18n="quoteText"></blockquote>
+</section>
+
+<section class="contact">
+    <h2 data-i18n="contactTitle"></h2>
+    <ul class="contact-list">
+        <li><span>Discord:</span> GothicV13#0000</li>
+        <li><span>Email:</span> your@email.com</li>
+        <li><span>GitHub:</span> github.com/GothicV13</li>
+        <li><span>Matrix:</span> @gothicv13:matrix.org</li>
+    </ul>
+</section>
+
+<footer>
+    © GothicV13 — Personal Portfolio
+</footer>
+
+<script>
+const t={
+en:{
+tagline:"Music, code, Linux experimentation, networking, and learning how systems really work.",
+aboutTitle:"About Me",
+aboutText:"I enjoy creating and experimenting across different technical and creative fields. From playing and producing music to coding in new languages, experimenting with Linux, and building out networks, I like understanding systems from the inside out.",
+interestsTitle:"What I Do",
+interest1:"Play and create music",
+interest2:"Learn and code in new programming languages",
+interest3:"Experiment with Linux systems and setups",
+interest4:"Build and expand personal networks",
+quoteTitle:"Statement",
+quoteText:"If buying isn’t owning, piracy isn’t stealing.",
+contactTitle:"Contact"
+},
+fr:{
+tagline:"Musique, code, expérimentation Linux, réseaux et apprentissage des systèmes.",
+aboutTitle:"À propos",
+aboutText:"J’aime créer et expérimenter dans différents domaines techniques et créatifs. Musique, programmation, Linux et réseaux — comprendre les systèmes en profondeur m’intéresse.",
+interestsTitle:"Ce que je fais",
+interest1:"Jouer et créer de la musique",
+interest2:"Apprendre et coder dans de nouveaux langages",
+interest3:"Expérimenter avec Linux",
+interest4:"Construire et développer des réseaux",
+quoteTitle:"Déclaration",
+quoteText:"Si acheter n’est pas posséder, le piratage n’est pas du vol.",
+contactTitle:"Contact"
+}
+};
+
+function setLang(l){
+document.querySelectorAll("[data-i18n]").forEach(e=>{
+e.innerHTML=t[l][e.dataset.i18n];
+});
+}
+document.getElementById("lang").addEventListener("change",e=>setLang(e.target.value));
+setLang("en");
+</script>
+
+</body>
+</html>
