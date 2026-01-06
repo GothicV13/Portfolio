@@ -23,12 +23,11 @@
 body{
     margin:0;
     font-family:Inter,sans-serif;
-    background:
-        radial-gradient(circle at top,#120404 0%,#050505 65%);
+    background: radial-gradient(circle at top,#120404 0%,#050505 65%);
     color:var(--text);
 }
 
-/* Grain */
+/* Subtle grain overlay */
 body::after{
     content:"";
     position:fixed;
@@ -72,15 +71,17 @@ select{
     width:130px;
     height:130px;
     border-radius:50%;
-    background:#080808;
+    overflow:hidden;
     border:2px solid var(--red);
     box-shadow:var(--glow);
     flex-shrink:0;
 }
 
-.avatar svg{
+.avatar img{
     width:100%;
     height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* Name */
@@ -94,7 +95,8 @@ select{
     margin:.6rem 0 0;
     color:var(--muted);
     max-width:560px;
-    line-height:1.6;
+    line-height:1.7;
+    font-size:1.05rem;
 }
 
 /* Sections */
@@ -114,7 +116,7 @@ section h2{
     margin-bottom:1.4rem;
 }
 
-/* Grid */
+/* Grid / Cards */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -141,6 +143,7 @@ blockquote{
     font-style:italic;
     color:var(--muted);
     font-size:1.05rem;
+    line-height:1.6;
 }
 
 /* Contact */
@@ -157,6 +160,7 @@ blockquote{
 .contact-list li{
     margin:.7rem 0;
     color:var(--muted);
+    font-size:1rem;
 }
 
 .contact-list span{
@@ -184,9 +188,9 @@ footer{
 
 <div class="hero">
     <div class="hero-inner">
-    <div class="avatar">
-    <img src="https://media.tenor.com/Yibdu4PiIIQAAAAi/typeonegative.gif" alt="GothicV13 Avatar">
-</div>
+        <div class="avatar">
+            <img src="https://media.tenor.com/Yibdu4PiIIQAAAAi/typeonegative.gif" alt="GothicV13 Avatar">
+        </div>
         <div class="name-block">
             <h1>GothicV13</h1>
             <p data-i18n="tagline"></p>
@@ -210,6 +214,15 @@ footer{
 </section>
 
 <section>
+    <h2 data-i18n="learningTitle"></h2>
+    <div class="grid">
+        <div class="card" data-i18n="learning1"></div>
+        <div class="card" data-i18n="learning2"></div>
+        <div class="card" data-i18n="learning3"></div>
+    </div>
+</section>
+
+<section>
     <h2 data-i18n="quoteTitle"></h2>
     <blockquote data-i18n="quoteText"></blockquote>
 </section>
@@ -220,6 +233,8 @@ footer{
         <li><span>Discord:</span> atltx</li>
         <li><span>Email:</span> GothicV13Dev@gmail.com</li>
         <li><span>GitHub:</span> github.com/GothicV13</li>
+        <li><span>Matrix:</span> @gothicv13:matrix.org</li>
+        <li><span>Website:</span> gothicv13.dev</li>
     </ul>
 </section>
 
@@ -230,27 +245,35 @@ footer{
 <script>
 const t={
 en:{
-tagline:"Music, code, Linux experimentation, networking, and learning how systems really work.",
+tagline:"I am a creator and explorer with a passion for music, software development, Python, Linux experimentation, and network architecture. I enjoy understanding systems in depth and pushing boundaries through hands-on projects.",
 aboutTitle:"About Me",
-aboutText:"I enjoy creating and experimenting across different technical and creative fields. From playing and producing music to coding in new languages, experimenting with Linux, and building out networks, I like understanding systems from the inside out.",
+aboutText:"I am a dedicated and curious individual who thrives at the intersection of creativity and technology. My work spans playing and producing music, coding in multiple programming languages, experimenting with Linux systems, and designing and expanding personal and experimental networks. I value both the aesthetic and functional aspects of projects and enjoy exploring innovative solutions to complex challenges.",
 interestsTitle:"What I Do",
-interest1:"Play and create music",
-interest2:"Learn and code in new programming languages",
-interest3:"Experiment with Linux systems and setups",
-interest4:"Build and expand personal networks",
+interest1:"Compose, perform, and produce music across various genres, exploring sound design and creative techniques.",
+interest2:"Learn and code in multiple programming languages, constantly exploring new frameworks and paradigms.",
+interest3:"Experiment with Linux systems, server configuration, and security to enhance technical expertise.",
+interest4:"Design, build, and expand personal networks, exploring both software and hardware aspects.",
+learningTitle:"Currently Learning",
+learning1:"Python programming: developing scripts, tools, and automation projects to improve workflow and explore problem-solving.",
+learning2:"Homelabbing: creating and experimenting with virtual machines, servers, and network setups in personal lab environments.",
+learning3:"Linux system administration: studying configurations, security practices, and server management techniques.",
 quoteTitle:"Statement",
 quoteText:"If buying isn’t owning, piracy isn’t stealing.",
 contactTitle:"Contact"
 },
 fr:{
-tagline:"Musique, code, expérimentation Linux, réseaux et apprentissage des systèmes.",
+tagline:"Je suis un créateur et explorateur passionné par la musique, le développement logiciel, Python, l’expérimentation Linux et l’architecture réseau. J’aime comprendre les systèmes en profondeur et repousser les limites à travers des projets pratiques.",
 aboutTitle:"À propos",
-aboutText:"J’aime créer et expérimenter dans différents domaines techniques et créatifs. Musique, programmation, Linux et réseaux — comprendre les systèmes en profondeur m’intéresse.",
+aboutText:"Je suis une personne curieuse et dévouée, qui s’épanouit à l’intersection de la créativité et de la technologie. Mon travail comprend la composition et la production musicale, la programmation dans plusieurs langages, l’expérimentation avec les systèmes Linux et la conception et l’extension de réseaux personnels et expérimentaux. J’accorde de l’importance aux aspects esthétiques et fonctionnels des projets et j’aime explorer des solutions innovantes à des défis complexes.",
 interestsTitle:"Ce que je fais",
-interest1:"Jouer et créer de la musique",
-interest2:"Apprendre et coder dans de nouveaux langages",
-interest3:"Expérimenter avec Linux",
-interest4:"Construire et développer des réseaux",
+interest1:"Composer, interpréter et produire de la musique dans différents genres, en explorant le design sonore et les techniques créatives.",
+interest2:"Apprendre et programmer dans plusieurs langages, en explorant constamment de nouveaux frameworks et paradigmes.",
+interest3:"Expérimenter avec les systèmes Linux, la configuration des serveurs et la sécurité afin d’approfondir l’expertise technique.",
+interest4:"Concevoir, construire et étendre des réseaux personnels, en explorant les aspects logiciels et matériels.",
+learningTitle:"En cours d'apprentissage",
+learning1:"Programmation Python : développement de scripts, d’outils et de projets d’automatisation pour améliorer le flux de travail et explorer la résolution de problèmes.",
+learning2:"Homelab : création et expérimentation de machines virtuelles, serveurs et configurations réseau dans des environnements de laboratoire personnels.",
+learning3:"Administration des systèmes Linux : étude des configurations, pratiques de sécurité et gestion des serveurs.",
 quoteTitle:"Déclaration",
 quoteText:"Si acheter n’est pas posséder, le piratage n’est pas du vol.",
 contactTitle:"Contact"
@@ -258,9 +281,9 @@ contactTitle:"Contact"
 };
 
 function setLang(l){
-document.querySelectorAll("[data-i18n]").forEach(e=>{
-e.innerHTML=t[l][e.dataset.i18n];
-});
+    document.querySelectorAll("[data-i18n]").forEach(e=>{
+        e.innerHTML=t[l][e.dataset.i18n];
+    });
 }
 document.getElementById("lang").addEventListener("change",e=>setLang(e.target.value));
 setLang("en");
